@@ -44,10 +44,20 @@ public class ApprenantController {
     @Autowired
     ApprenantServiceImp apprenantServiceImp;
 
+    @GetMapping("/conn/{login}/{password}")
+    @ResponseBody
+    public Apprenant connexion(
+            @PathVariable(value = "login") String login,
+            @PathVariable(value = "password") String password)
+    {
+        return apprenantServiceImp.connexion(login, password);
+    }
+    
+    
     @GetMapping("/all")
     @ResponseBody
     public List<Apprenant> getAllApprenant(){
-    return apprenantServiceImp.getAllApprenants();
+        return apprenantServiceImp.getAllApprenants();
     }
     
 
@@ -71,8 +81,7 @@ public class ApprenantController {
     
     }
    
-    @PutMapping("/apprenant1/{id}")
-    @ResponseBody
+    @PutMapping("/apprenant/{id}")
     public ResponseEntity<Apprenant> modifierApprenant(@PathVariable(value = "id") Long id,
             @RequestBody Apprenant modifier_apprenant){
         Optional<Apprenant> apprenant = apprenantRepo.findById(id);

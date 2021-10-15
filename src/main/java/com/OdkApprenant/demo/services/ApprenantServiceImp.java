@@ -17,11 +17,11 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class ApprenantServiceImp implements ApprenantService{
-    
+
     @Autowired
     ApprenantRepository apprenantRepository;
-    
-    
+
+
     @Override
     public Apprenant saveApprenant(Apprenant a) {
         return apprenantRepository.save(a);
@@ -51,5 +51,10 @@ public class ApprenantServiceImp implements ApprenantService{
     public List<Apprenant> getAllApprenants() {
         return apprenantRepository.findAll();
     }
-    
+
+    @Override
+    public Apprenant connexion(String login, String password) {
+        return apprenantRepository.findByLoginAndPassword(login, password);
+    }
+
 }

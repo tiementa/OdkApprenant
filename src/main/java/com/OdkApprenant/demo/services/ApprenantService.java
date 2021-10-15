@@ -31,5 +31,6 @@ public interface ApprenantService {
     
     List<Apprenant> getAllApprenants();
     
+    Apprenant connexion(String login, String password);
     
 }

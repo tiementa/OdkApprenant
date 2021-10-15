@@ -31,7 +31,7 @@ public class Apprenant implements Serializable {
     private String login;
     private String password;
     private String genre;
-     @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.STRING)
     private  ApprenantStatus apprenantStatus;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dateCreation;
@@ -42,8 +42,7 @@ public class Apprenant implements Serializable {
         super();
     }
 
-    public Apprenant(String nom, String prenom, String age, String tel, String email, String login, String password, String genre, ApprenantStatus apprenantStatus, Date dateCreation, Date dateModification) 
-    {
+    public Apprenant(String nom, String prenom, String age, String tel, String email, String login, String password, String genre, ApprenantStatus apprenantStatus, Date dateCreation, Date dateModification) {
         this.nom = nom;
         this.prenom = prenom;
         this.age = age;
